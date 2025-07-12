@@ -65,7 +65,7 @@ This project implements a fully automated document review system using Google Cl
 
 - Install dependencies:
 ```bash
-pip install streamlit google-cloud-storage google-cloud-bigquery
+pip install -r requirements.txt
 ```
 - Run the streamlit app
 ```
