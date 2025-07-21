@@ -14,8 +14,9 @@ DATASET = "document_processing_logs"
 TABLE = "summary_results"
 
 try:
-    service_account_info = st.secrets["gcp_service_account"]
-    creds = json.loads(json.dumps(service_account_info))
+    service_account_info = dict(st.secrets["gcp_service_account"])
+    creds = service_account.Credentials.from_service_account_info(service_account_info)
+    
     bq_client = bigquery.Client(credentials=creds, project=GCP_PROJECT_ID)
     storage_client = storage.Client(credentials=creds, project=GCP_PROJECT_ID)
 except Exception as e:
