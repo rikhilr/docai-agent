@@ -2,6 +2,8 @@
 
 This project implements a fully automated document review system using Google Cloud technologies. Documents uploaded to a GCS bucket are processed through Document AI and reviewed using the Gemini 2.0 Flash model on Vertex AI. Final decisions are stored in BigQuery and visualized through a Streamlit-based frontend.
 
+Live Website: https://docai-agent-csandye3gq5q46x39t2zeq.streamlit.app/
+
 ---
 
 ## Architecture Overview
