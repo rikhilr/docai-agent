@@ -11,14 +11,10 @@ GCP_PROJECT_ID = "docai-final"
 BUCKET_NAME = "document-input-2"
 DATASET = "document_processing_logs"
 TABLE = "summary_results"
-SERVICE_ACCOUNT_FILE = ".streamlit/docKey.json"
 
 try:
-    if not os.path.exists(SERVICE_ACCOUNT_FILE):
-        st.error(f"Service account file not found at: {SERVICE_ACCOUNT_FILE}")
-        st.stop()
-
-    creds = service_account.Credentials.from_service_account_file(SERVICE_ACCOUNT_FILE)
+    service_account_info = st.secrets["gcp_service_account"]
+    creds = json.loads(json.dumps(service_account_info))
     bq_client = bigquery.Client(credentials=creds, project=GCP_PROJECT_ID)
     storage_client = storage.Client(credentials=creds, project=GCP_PROJECT_ID)
 except Exception as e:
