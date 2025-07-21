@@ -6,6 +6,7 @@ import pandas as pd
 import time
 import os
 from datetime import datetime
+import json
 
 GCP_PROJECT_ID = "docai-final"
 BUCKET_NAME = "document-input-2"
